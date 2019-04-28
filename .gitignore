@@ -3,3 +3,5 @@
 ################################################################################
 
 /src/MercadoPago.NetCore.Model/bin/Debug/netstandard2.0
+/.vs/MercadoPago.NetCore/v16
+/src/MercadoPago.NetCore.Model/obj

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28822.285
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoPago.NetCore.Model", "src\MercadoPago.NetCore.Model\MercadoPago.NetCore.Model.csproj", "{83708025-939A-446B-B3F7-FF9848D42742}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83708025-939A-446B-B3F7-FF9848D42742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83708025-939A-446B-B3F7-FF9848D42742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83708025-939A-446B-B3F7-FF9848D42742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83708025-939A-446B-B3F7-FF9848D42742}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0AC0F20E-E96C-4C6F-92A0-126E1A8AE303}
+	EndGlobalSection
+EndGlobal

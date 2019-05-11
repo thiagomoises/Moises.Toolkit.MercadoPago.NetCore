@@ -35,7 +35,7 @@ namespace MercadoPago.NetCore.Model
 
         #region Accessors
        
-        public string ID
+        public string Id
         {
             get { return id; }
             set { this.id = value; } //This Accessor must be removed after testing approvement.

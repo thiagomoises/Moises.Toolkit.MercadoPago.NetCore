@@ -1,6 +1,5 @@
 ﻿using MercadoPago.NetCore.Model.Resources;
 using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
-using MercadoPago.NetCore.Model.Resources.Dataclassures.Customer;
 using moisesToolkit.MercadoPago.NetCore.HubClients;
 using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using moisesToolkit.MercadoPago.NetCore.Tests.Helpers;
@@ -14,7 +13,7 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
     [TestFixture]
     public class CustomerHubClientTests
     {
-        private CustomerHubClient _customerHubClient { get; set; }
+        public CustomerHubClient CustomerHubClient { get; private set; }
 
         [SetUp]
         public void Setup()
@@ -23,13 +22,13 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
 
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
-            _customerHubClient = new CustomerHubClient(TicketHelperTest.GetHttpClient(), TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
+            CustomerHubClient = new CustomerHubClient(TicketHelperTest.GetHttpClient(), TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
         }
 
         [TearDown]
         public void Cleanup()
         {
-            _customerHubClient = null;
+            CustomerHubClient = null;
         }
 
         [Test]
@@ -41,10 +40,10 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
                 Email = "email@email.com.br",
                 LastName = "Moises",
             };
-            var result = await _customerHubClient.SaveAsync(customer);
+            var result = await CustomerHubClient.SaveAsync(customer);
 
-            bool firstCondition = (!string.IsNullOrEmpty(result?.Id) && customer.LastName.Equals(result?.LastName) && _customerHubClient.IsValid());
-            bool secondCondition = _customerHubClient.Notifications.Any(x => x.Message.Equals("the customer already exist"));
+            bool firstCondition = (!string.IsNullOrEmpty(result?.Id) && customer.LastName.Equals(result?.LastName) && CustomerHubClient.IsValid());
+            bool secondCondition = CustomerHubClient.Notifications.Any(x => x.Message.Equals("the customer already exist"));
 
             Assert.IsTrue(firstCondition || secondCondition);
         }
@@ -52,50 +51,50 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
         [Test]
         public async Task FindAsync_Test_Null()
         {
-            var result = await _customerHubClient.FindAsync(null);
-            Assert.IsTrue(_customerHubClient.IsInvalid());
+            var result = await CustomerHubClient.FindAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsInvalid());
         }
 
         [Test]
         public async Task FindAsync_Test_Empty()
         {
-            var result = await _customerHubClient.FindAsync(null);
-            Assert.IsTrue(_customerHubClient.IsInvalid());
+            var result = await CustomerHubClient.FindAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsInvalid());
         }
 
         [Test]
         public async Task SearchAsync_Test_Null()
         {
-            var result = await _customerHubClient.SearchAsync(null);
-            Assert.IsTrue(_customerHubClient.IsValid());
+            var result = await CustomerHubClient.SearchAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsValid());
         }
 
         [Test]
         public async Task SearchAsync_Test_Empty()
         {
-            var result = await _customerHubClient.SearchAsync(new System.Collections.Generic.Dictionary<string, string>());
-            Assert.IsTrue(_customerHubClient.IsValid());
+            var result = await CustomerHubClient.SearchAsync(new System.Collections.Generic.Dictionary<string, string>());
+            Assert.IsTrue(CustomerHubClient.IsValid());
         }
 
         [Test]
         public async Task SaveAsync_Test_Null()
         {
-            var result = await _customerHubClient.SaveAsync(null);
-            Assert.IsTrue(_customerHubClient.IsInvalid());
+            var result = await CustomerHubClient.SaveAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsInvalid());
         }
 
         [Test]
         public async Task UpdateAsync_Test()
         {
-            var result = await _customerHubClient.UpdateAsync(null);
-            Assert.IsTrue(_customerHubClient.IsInvalid());
+            var result = await CustomerHubClient.UpdateAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsInvalid());
         }
 
         [Test]
         public async Task DeleteAsync_Test()
         {
-            var result = await _customerHubClient.DeleteAsync(null);
-            Assert.IsTrue(_customerHubClient.IsInvalid());
+            var result = await CustomerHubClient.DeleteAsync(null);
+            Assert.IsTrue(CustomerHubClient.IsInvalid());
         }
 
     }

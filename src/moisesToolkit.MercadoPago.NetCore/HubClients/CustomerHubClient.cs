@@ -11,7 +11,7 @@ using System.Text;
 
 namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
-    public partial class CustomerHubClient : MercadoPagoHubClient
+    public partial class CustomerHubClient : MercadoPagoHubClient, ICustomerHubClient
     {
         public CustomerHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {

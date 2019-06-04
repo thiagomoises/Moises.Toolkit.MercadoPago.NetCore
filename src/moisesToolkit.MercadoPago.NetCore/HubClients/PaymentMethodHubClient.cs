@@ -7,7 +7,7 @@ using System.Net.Http;
 
 namespace moisesToolkit.MercadoPago.NetCore
 {
-    public partial class PaymentMethodHubClient : MercadoPagoHubClient
+    public partial class PaymentMethodHubClient : MercadoPagoHubClient, IPaymentMethodHubClient
     {
         public PaymentMethodHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {

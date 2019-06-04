@@ -7,7 +7,7 @@ using System.Text;
 
 namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
-    public class PlanHubClient : MercadoPagoHubClient
+    public class PlanHubClient : MercadoPagoHubClient, IPlanHubClient
     {
         public PlanHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {
@@ -15,6 +15,14 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 
         public async System.Threading.Tasks.Task<Plan> FindAsync(string planId)
         {
+            if (string.IsNullOrEmpty(planId))
+            {
+                this.AddNotification("planId", "planId is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/plans/{planId}");
             var response = await Client.GetAsync(url);
             string stringResponse = await this.ExtractResponseAsync(response);
@@ -24,27 +32,43 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
         }
 
 
-        public async System.Threading.Tasks.Task<bool> SaveAsync(Plan plan)
+        public async System.Threading.Tasks.Task<Plan> SaveAsync(Plan plan)
         {
+            if (plan is null)
+            {
+                this.AddNotification("plan", "plan is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/plans/");
 
             var content = new StringContent(JsonConvert.SerializeObject(plan, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
             string stringResponse = await this.ExtractResponseAsync(response);
             if (this.IsInvalid())
-                return false;
-            return true;
+                return null;
+            return JsonConvert.DeserializeObject<Plan>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
-        public async System.Threading.Tasks.Task<bool> UpdateAsync(Plan plan)
+        public async System.Threading.Tasks.Task<Plan> UpdateAsync(Plan plan)
         {
+            if (plan is null)
+            {
+                this.AddNotification("plan", "plan is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/plans/{plan.Id}/");
             var content = new StringContent(JsonConvert.SerializeObject(plan, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(url, content);
             string stringResponse = await this.ExtractResponseAsync(response);
             if (this.IsInvalid())
-                return false;
-            return true;
+                return null;
+            return JsonConvert.DeserializeObject<Plan>(stringResponse, MPUtil.JsonSerializerSettings);
         }
     }
 }

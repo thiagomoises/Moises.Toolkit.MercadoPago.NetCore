@@ -8,7 +8,7 @@ using System.Text;
 
 namespace moisesToolkit.MercadoPago.NetCore
 {
-    public partial class MerchantOrderHubClient : MercadoPagoHubClient
+    public partial class MerchantOrderHubClient : MercadoPagoHubClient, IMerchantOrderHubClient
     {
         public MerchantOrderHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {
@@ -16,6 +16,14 @@ namespace moisesToolkit.MercadoPago.NetCore
 
         public async System.Threading.Tasks.Task<MerchantOrder> FindAsync(string merchantOrderId)
         {
+            if (string.IsNullOrEmpty(merchantOrderId))
+            {
+                this.AddNotification("merchantOrderId", "merchantOrderId is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/merchant_orders/{merchantOrderId}");
             var response = await Client.GetAsync(url);
             string stringResponse = await this.ExtractResponseAsync(response);
@@ -24,27 +32,43 @@ namespace moisesToolkit.MercadoPago.NetCore
             return JsonConvert.DeserializeObject<MerchantOrder>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
-        public async System.Threading.Tasks.Task<bool> SaveAsync(MerchantOrder merchantOrder)
+        public async System.Threading.Tasks.Task<MerchantOrder> SaveAsync(MerchantOrder merchantOrder)
         {
+            if (merchantOrder is null)
+            {
+                this.AddNotification("merchantOrder", "merchantOrder is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/merchant_orders/");
 
             var content = new StringContent(JsonConvert.SerializeObject(merchantOrder, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
             string stringResponse = await this.ExtractResponseAsync(response);
             if (this.IsInvalid())
-                return false;
-            return true;
+                return null;
+            return JsonConvert.DeserializeObject<MerchantOrder>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
-        public async System.Threading.Tasks.Task<bool> UpdateAsync(MerchantOrder merchantOrder)
+        public async System.Threading.Tasks.Task<MerchantOrder> UpdateAsync(MerchantOrder merchantOrder)
         {
+            if (merchantOrder is null)
+            {
+                this.AddNotification("merchantOrder", "merchantOrder is Required");
+            }
+
+            if (this.IsInvalid())
+                return null;
+
             var url = await MPUrlBuildAsync($"/v1/merchant_orders/{merchantOrder.Id}/");
             var content = new StringContent(JsonConvert.SerializeObject(merchantOrder, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(url, content);
             string stringResponse = await this.ExtractResponseAsync(response);
             if (this.IsInvalid())
-                return false;
-            return true;
+                return null;
+            return JsonConvert.DeserializeObject<MerchantOrder>(stringResponse, MPUtil.JsonSerializerSettings);
         }
     }
 }

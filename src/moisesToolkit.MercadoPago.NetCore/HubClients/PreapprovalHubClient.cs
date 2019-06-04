@@ -10,7 +10,7 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public class PreapprovalHubClient : MercadoPagoHubClient, IPreapprovalHubClient
     {
-        public PreapprovalHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
+        public PreapprovalHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
         }
         public async System.Threading.Tasks.Task<SearchResult<Preapproval>> SearchAsync(Dictionary<string, string> mapParams)

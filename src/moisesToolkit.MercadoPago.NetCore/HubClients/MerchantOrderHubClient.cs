@@ -10,7 +10,7 @@ namespace moisesToolkit.MercadoPago.NetCore
 {
     public partial class MerchantOrderHubClient : MercadoPagoHubClient, IMerchantOrderHubClient
     {
-        public MerchantOrderHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
+        public MerchantOrderHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
         }
 

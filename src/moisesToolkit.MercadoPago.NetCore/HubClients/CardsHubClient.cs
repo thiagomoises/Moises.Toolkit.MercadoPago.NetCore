@@ -1,17 +1,15 @@
 ﻿using MercadoPago.NetCore.Model.DataStructures.Search;
 using MercadoPago.NetCore.Model.Resources;
-using moisesToolkit.MercadoPago.NetCore.HubClients;
 using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 
-namespace moisesToolkit.MercadoPago.NetCore
+namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public partial class CardsHubClient : MercadoPagoHubClient, ICardsHubClient
     {
-        public CardsHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
+        public CardsHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
         }
 

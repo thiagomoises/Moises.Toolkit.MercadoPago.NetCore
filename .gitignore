@@ -9,3 +9,5 @@
 /src/moisesToolkit.MercadoPago.NetCore/obj
 /test/moisesToolkit.MercadoPago.NetCore.Tests/bin
 /test/moisesToolkit.MercadoPago.NetCore.Tests/obj
+/sample/moisesToolkit.MercadoPago.NetCore.Sample/bin
+/sample/moisesToolkit.MercadoPago.NetCore.Sample/obj

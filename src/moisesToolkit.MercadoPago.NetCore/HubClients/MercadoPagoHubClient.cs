@@ -19,17 +19,13 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
         protected static Ticket ActualTicket { get; set; }
         #endregion
 
-
         protected readonly HttpClient Client;
         private readonly MPOptions _options;
         private readonly ITokenHubClient _tokenHubService;
 
-        public MercadoPagoHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubService)
-        {
-            httpClient.BaseAddress = new Uri("https://api.mercadopago.com");
-            httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
-            httpClient.DefaultRequestHeaders.Add("User-Agent", "MercadoPago DotNet SDK/1.0.30");
-            Client = httpClient;
+        public MercadoPagoHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubService)
+        {            
+            Client = httpClientFactory.CreateClient("mercadopago");
             _options = options;
             _tokenHubService = tokenHubService;
         }

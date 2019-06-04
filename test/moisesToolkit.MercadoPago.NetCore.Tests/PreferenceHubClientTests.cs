@@ -8,6 +8,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Extensions;
 
@@ -24,6 +25,11 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
         {
             Mock<ITokenHubClient> tokenHubClient = new Mock<ITokenHubClient>();
 
+            Mock<IHttpClientFactory> _httpClientFactory = new Mock<IHttpClientFactory>();
+
+            _httpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>()))
+                .Returns(TicketHelperTest.GetHttpClient());
+
 
             var customerHub = new CustomerHubClientTests();
             customerHub.Setup();
@@ -32,7 +38,7 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
 
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
-            _PreferenceHubClient = new PreferenceHubClient(TicketHelperTest.GetHttpClient(), TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
+            _PreferenceHubClient = new PreferenceHubClient(_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
         }
 
         [TearDown]

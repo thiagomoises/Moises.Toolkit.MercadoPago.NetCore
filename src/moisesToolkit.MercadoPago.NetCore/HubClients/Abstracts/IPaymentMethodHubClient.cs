@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MercadoPago.NetCore.Model.Resources;
 
-namespace moisesToolkit.MercadoPago.NetCore
+namespace moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts
 {
     public interface IPaymentMethodHubClient
     {

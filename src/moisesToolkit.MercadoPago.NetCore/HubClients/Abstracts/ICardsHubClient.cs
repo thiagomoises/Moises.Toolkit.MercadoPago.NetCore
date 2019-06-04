@@ -2,7 +2,7 @@
 using MercadoPago.NetCore.Model.DataStructures.Search;
 using MercadoPago.NetCore.Model.Resources;
 
-namespace moisesToolkit.MercadoPago.NetCore
+namespace moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts
 {
     public interface ICardsHubClient
     {

@@ -9,7 +9,7 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public class RefundHubClient : MercadoPagoHubClient, IRefundHubClient
     {
-        public RefundHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
+        public RefundHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
         }
 

@@ -9,7 +9,7 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public class PlanHubClient : MercadoPagoHubClient, IPlanHubClient
     {
-        public PlanHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
+        public PlanHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
         }
 

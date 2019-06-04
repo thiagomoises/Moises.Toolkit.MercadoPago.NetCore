@@ -1,12 +1,14 @@
 ﻿using MercadoPago.NetCore.Model.Resources;
 using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using MercadoPago.NetCore.Model.Resources.Dataclassures.Card;
+using moisesToolkit.MercadoPago.NetCore.HubClients;
 using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using moisesToolkit.MercadoPago.NetCore.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 using System;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Extensions;
 
@@ -22,7 +24,10 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
         public void Setup()
         {
             Mock<ITokenHubClient> tokenHubClient = new Mock<ITokenHubClient>();
+            Mock<IHttpClientFactory> _httpClientFactory = new Mock<IHttpClientFactory>();
 
+            _httpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>()))
+                .Returns(TicketHelperTest.GetHttpClient());
 
             var customerHub = new CustomerHubClientTests();
             customerHub.Setup();
@@ -31,7 +36,7 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
 
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
-            _CardHubClient = new CardsHubClient(TicketHelperTest.GetHttpClient(), TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
+            _CardHubClient = new CardsHubClient(_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
         }
 
         [TearDown]

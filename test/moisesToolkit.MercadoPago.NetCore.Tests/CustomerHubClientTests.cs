@@ -6,6 +6,7 @@ using moisesToolkit.MercadoPago.NetCore.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace moisesToolkit.MercadoPago.NetCore.Tests
@@ -20,9 +21,14 @@ namespace moisesToolkit.MercadoPago.NetCore.Tests
         {
             Mock<ITokenHubClient> tokenHubClient = new Mock<ITokenHubClient>();
 
+            Mock<IHttpClientFactory> _httpClientFactory = new Mock<IHttpClientFactory>();
+
+            _httpClientFactory.Setup(x => x.CreateClient(It.IsAny<string>()))
+                .Returns(TicketHelperTest.GetHttpClient());
+
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
-            CustomerHubClient = new CustomerHubClient(TicketHelperTest.GetHttpClient(), TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
+            CustomerHubClient = new CustomerHubClient(_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
         }
 
         [TearDown]

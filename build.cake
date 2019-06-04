@@ -30,7 +30,7 @@ Task("Test")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    foreach(var project in GetFiles("./tests/**/*.csproj"))
+    foreach(var project in GetFiles("./test/**/*.csproj"))
     {
         DotNetCoreTest(
             project.GetDirectory().FullPath,

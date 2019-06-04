@@ -1,4 +1,5 @@
 ﻿using MercadoPago.NetCore.Model.Resources;
+using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,7 +9,7 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public class PlanHubClient : MercadoPagoHubClient
     {
-        public PlanHubClient(HttpClient httpClient, MPOptions options) : base(httpClient, options)
+        public PlanHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {
         }
 
@@ -16,9 +17,10 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
         {
             var url = await MPUrlBuildAsync($"/v1/plans/{planId}");
             var response = await Client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Plan>(stringResponse, JsonSerializerSettings);
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return null;
+            return JsonConvert.DeserializeObject<Plan>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
 
@@ -26,20 +28,22 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
         {
             var url = await MPUrlBuildAsync($"/v1/plans/");
 
-            var content = new StringContent(JsonConvert.SerializeObject(plan), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(plan, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return false;
             return true;
         }
 
         public async System.Threading.Tasks.Task<bool> UpdateAsync(Plan plan)
         {
             var url = await MPUrlBuildAsync($"/v1/plans/{plan.Id}/");
-            var content = new StringContent(JsonConvert.SerializeObject(plan), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(plan, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(url, content);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return false;
             return true;
         }
     }

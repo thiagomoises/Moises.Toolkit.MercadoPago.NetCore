@@ -1,4 +1,7 @@
-﻿using MercadoPago.NetCore.Model.Resources;
+﻿using MercadoPago.NetCore.Model.DataStructures.Search;
+using MercadoPago.NetCore.Model.Resources;
+using moisesToolkit.MercadoPago.NetCore.HubClients;
+using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,46 +11,50 @@ namespace moisesToolkit.MercadoPago.NetCore
 {
     public partial class CardsHubClient : MercadoPagoHubClient
     {
-        public CardsHubClient(HttpClient httpClient, MPOptions options) : base(httpClient, options)
+        public CardsHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {
         }
 
-        public async System.Threading.Tasks.Task<List<Card>> GetCardsAsync(string customerId)
+        public async System.Threading.Tasks.Task<SearchResult<Card>> GetCardsAsync(string customerId)
         {
             var url = await MPUrlBuildAsync($"/v1/customers/{customerId}/cards");
             var response = await Client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Card>>(stringResponse, JsonSerializerSettings);
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return null;
+            return JsonConvert.DeserializeObject<SearchResult<Card>>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
         public async System.Threading.Tasks.Task<Card> FindAsync(string customerId, string cardId)
         {
             var url = await MPUrlBuildAsync($"/v1/customers/{customerId}/cards/{cardId}");
             var response = await Client.GetAsync(url);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<Card>(stringResponse, JsonSerializerSettings);
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return null;
+            return JsonConvert.DeserializeObject<Card>(stringResponse, MPUtil.JsonSerializerSettings);
         }
 
         public async System.Threading.Tasks.Task<bool> SaveAsync(Card card)
         {
             var url = await MPUrlBuildAsync($"/v1/customers/{card.CustomerId}/cards/");
 
-            var content = new StringContent(JsonConvert.SerializeObject(card), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(card, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return false;
             return true;
         }
 
         public async System.Threading.Tasks.Task<bool> UpdateAsync(Card card)
         {
             var url = await MPUrlBuildAsync($"/v1/customers/{card.CustomerId}/cards/{card.Id}");
-            var content = new StringContent(JsonConvert.SerializeObject(card), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(card, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PutAsync(url, content);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return false;
             return true;
         }
 
@@ -55,9 +62,10 @@ namespace moisesToolkit.MercadoPago.NetCore
         {
             var url = await MPUrlBuildAsync($"/v1/customers/{card.CustomerId}/cards/{card.Id}");
             var response = await Client.DeleteAsync(url);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<List<Card>>(stringResponse, JsonSerializerSettings);
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return null;
+            return JsonConvert.DeserializeObject<List<Card>>(stringResponse, MPUtil.JsonSerializerSettings);
         }
     }
 }

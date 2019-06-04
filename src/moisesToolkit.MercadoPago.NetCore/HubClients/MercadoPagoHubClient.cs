@@ -1,60 +1,58 @@
 ﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
-using moisesToolkit.MercadoPago.NetCore.JsonMaps;
-using Newtonsoft.FluentAPI.Resolvers;
+using MercadoPago.NetCore.Model.Resources.Errors;
+using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
+using prmToolkit.NotificationPattern;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace moisesToolkit.MercadoPago.NetCore
+namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
-    public abstract class MercadoPagoHubClient
+    public abstract class MercadoPagoHubClient : Notifiable
     {
         #region Static properties
-        protected static JsonSerializerSettings JsonSerializerSettings { get; private set; }
         protected static Ticket ActualTicket { get; set; }
         #endregion
 
+
         protected readonly HttpClient Client;
         private readonly MPOptions _options;
+        private readonly ITokenHubClient _tokenHubService;
 
-        public MercadoPagoHubClient(HttpClient httpClient, MPOptions options)
+        public MercadoPagoHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubService)
         {
             httpClient.BaseAddress = new Uri("https://api.mercadopago.com");
             httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
             httpClient.DefaultRequestHeaders.Add("User-Agent", "MercadoPago DotNet SDK/1.0.30");
             Client = httpClient;
             _options = options;
-            this.ConfigureSerializerSettings();
+            _tokenHubService = tokenHubService;
         }
 
-
-        private void ConfigureSerializerSettings()
+        protected async Task<string> ExtractResponseAsync(HttpResponseMessage response)
         {
-            FluentContractResolver _fcr = new FluentContractResolver();
-            _fcr.AddConfiguration(new TicketMap());
-
-            JsonSerializerSettings = new JsonSerializerSettings()
+            var stringResponse = await response.Content.ReadAsStringAsync();
+            if (new HttpStatusCode[] { HttpStatusCode.BadRequest, HttpStatusCode.InternalServerError }.Contains(response.StatusCode))
             {
-                NullValueHandling = NullValueHandling.Ignore,
-                DefaultValueHandling = DefaultValueHandling.Ignore,
-                Formatting = Formatting.Indented,
-                ContractResolver = _fcr
-            };
+                var errorResult = JsonConvert.DeserializeObject<ErrorResult>(stringResponse, MPUtil.JsonSerializerSettings);
+                foreach (var cause in errorResult.Causes)
+                {
+                    this.AddNotification(cause.Code, cause.Description);
+                }
+            }
+            return stringResponse;
         }
 
         private async Task RefreshAccessTokenAsync()
         {
-            if (ActualTicket.IsExpired == true)
+            if (ActualTicket?.IsExpired != true)
             {
-                var requestObject = new { grant_type = "client_credentials", client_id = _options.ClientId, client_secret = _options.ClientSecret };
-                var content = new StringContent(JsonConvert.SerializeObject(requestObject), Encoding.UTF8, "application/json");
-                var response = await Client.PostAsync("/oauth/token", content);
-                response.EnsureSuccessStatusCode();
-                var stringResponse = await response.Content.ReadAsStringAsync();
-                ActualTicket = JsonConvert.DeserializeObject<Ticket>(stringResponse, JsonSerializerSettings);
+                ActualTicket = await _tokenHubService.GetTicketAsync();
             }
         }
 
@@ -64,13 +62,16 @@ namespace moisesToolkit.MercadoPago.NetCore
             return string.Format("{0}{1}{2}", baseUrl, "?access_token=", ActualTicket.AccessToken);
         }
 
-        protected async Task<string> MPUrlBuildAsync(string baseUrl, Dictionary<string,string> mapParams)
+        protected async Task<string> MPUrlBuildAsync(string baseUrl, Dictionary<string, string> mapParams)
         {
             var url = await this.MPUrlBuildAsync(baseUrl);
             StringBuilder paramsSb = new StringBuilder();
-            foreach (var elem in mapParams)
+            if (mapParams != null)
             {
-                paramsSb.Append(string.Format("{0}{1}={2}", "&", elem.Key, elem.Value));
+                foreach (var elem in mapParams)
+                {
+                    paramsSb.Append(string.Format("{0}{1}={2}", "&", elem.Key, elem.Value));
+                }
             }
             return string.Format("{0}{1}", url, paramsSb.ToString());
         }

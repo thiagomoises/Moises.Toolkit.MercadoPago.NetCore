@@ -5,9 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel" Version="3.10.9" />
+    <PackageReference Include="IdentityModel" Version="3.10.10" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
     <PackageReference Include="moisesToolkit.Newtonsoft.FluentAPI" Version="1.0.1" />
+    <PackageReference Include="prmToolkit.NotificationPattern" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>

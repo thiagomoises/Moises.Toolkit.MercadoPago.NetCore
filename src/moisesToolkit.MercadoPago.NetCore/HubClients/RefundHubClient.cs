@@ -1,4 +1,5 @@
 ﻿using MercadoPago.NetCore.Model.Resources;
+using moisesToolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -8,17 +9,18 @@ namespace moisesToolkit.MercadoPago.NetCore.HubClients
 {
     public class RefundHubClient : MercadoPagoHubClient
     {
-        public RefundHubClient(HttpClient httpClient, MPOptions options) : base(httpClient, options)
+        public RefundHubClient(HttpClient httpClient, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClient, options, tokenHubClient)
         {
         }
         
         public async System.Threading.Tasks.Task<bool> SaveAsync(Refund refund)
         {
             var url = await MPUrlBuildAsync($"/v1/payments/{refund.PaymentId}/refunds");
-            var content = new StringContent(JsonConvert.SerializeObject(refund), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(refund, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
-            response.EnsureSuccessStatusCode();
-            var stringResponse = await response.Content.ReadAsStringAsync();
+            string stringResponse = await this.ExtractResponseAsync(response);
+            if (this.IsInvalid())
+                return false;
             return true;
         }
 

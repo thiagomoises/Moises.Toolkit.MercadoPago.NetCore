@@ -79,7 +79,7 @@ Task("Push-Nuget-Package")
 });
 
 Task("Default")
-    .IsDependentOn("Create-Nuget-Package");
+    .IsDependentOn("Push-Nuget-Package");
 
 RunTarget(target);
 

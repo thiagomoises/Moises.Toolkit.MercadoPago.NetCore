@@ -1,7 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>moisesToolkit.MercadoPago.NetCore.Model</PackageId>
+    <Product>moisesToolkit.MercadoPago.NetCore.Model</Product>
+    <Authors>T. Moises</Authors>
+    <Company>T. Moises</Company>
+    <Description>Model classes for moisesToolkit.MercadoPago.NetCore</Description>
+    <PackageProjectUrl>https://github.com/thiagomoises/moisesToolkit.MercadoPago.NetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/thiagomoises/moisesToolkit.MercadoPago.NetCore</RepositoryUrl>
+    <RepositoryType>public</RepositoryType>
+    <PackageTags>mecadopago, mercadopago-api, sdk-dotnet, dotnetcore, payment-sdk</PackageTags>
+    <PackageReleaseNotes>Classes and enums for Mercado Pago api</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

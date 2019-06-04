@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>T. Moises</Authors>
+    <PackageProjectUrl>https://github.com/thiagomoises/moisesToolkit.MercadoPago.NetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/thiagomoises/moisesToolkit.MercadoPago.NetCore</RepositoryUrl>
+    <Description>MercadoPago SDK for .NetCore</Description>
+    <PackageReleaseNotes>Basic functions for integration with Mercado Pago API</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

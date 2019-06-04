@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace MercadoPago.NetCore.Model.Enum
+namespace MercadoPago.NetCore.Model.Resources.Enum
 {
-    [JsonConverter(typeof(StringEnumConverter))]
     public enum PaymentTypeId
     {
         ///<summary>Money in the MercadoPago account</summary>

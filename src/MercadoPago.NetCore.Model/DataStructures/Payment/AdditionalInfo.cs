@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct AdditionalInfo
+    public class AdditionalInfo
     {
         #region Properties
         private String _ip_address;
         private List<Item> _items;
-        private AdditionalInfoPayer? _payer; 
-        private Shipment? _shipments;  
-        private Barcode? _barcode;
+        private AdditionalInfoPayer _payer; 
+        private Shipment _shipments;  
+        private Barcode _barcode;
         #endregion
 
         #region Accessors
@@ -32,7 +32,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Buyer's information
         /// </summary>
-        public AdditionalInfoPayer? Payer
+        public AdditionalInfoPayer Payer
         {
             get
             {
@@ -47,7 +47,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Shipping information
         /// </summary> 
-        public Shipment? Shipments  
+        public Shipment Shipments  
         {
             get
             {
@@ -62,7 +62,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Barcode information
         /// </summary>
-        public Barcode? Barcode 
+        public Barcode Barcode 
         {
             get
             {

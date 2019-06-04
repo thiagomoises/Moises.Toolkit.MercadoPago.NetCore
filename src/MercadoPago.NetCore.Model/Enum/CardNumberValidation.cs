@@ -1,4 +1,4 @@
-﻿namespace MercadoPago.NetCore.Model.Enum
+﻿namespace MercadoPago.NetCore.Model.Resources.Enum
 {
     public enum CardNumberValidation
     {

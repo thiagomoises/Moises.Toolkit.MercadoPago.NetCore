@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Customer
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Customer
 {
-    public struct CustomerAddress
+    public class CustomerAddress
     {
         #region Properties
         private string _id;
@@ -13,13 +13,13 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
         private string _street_name;
         private string _street_number;
         private string _zip_code;
-        private City? _city;
-        private State? _state;
-        private Country? _country;
-        private Neighborhood? _neighborhood;
-        private Municipality? _municipality;
+        private City _city;
+        private State _state;
+        private Country _country;
+        private Neighborhood _neighborhood;
+        private Municipality _municipality;
         private string _comments;
-        private DateTime? _date_created;
+        private DateTime _date_created;
         private Verification _verifications;
         private bool _live_mode;
         #endregion
@@ -130,7 +130,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> City information </summary>
-        public City? City
+        public City City
         {
             get
             {
@@ -143,7 +143,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> State information </summary>
-        public State? State
+        public State State
         {
             get
             {
@@ -156,7 +156,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> Country information </summary>
-        public Country? Country
+        public Country Country
         {
             get
             {
@@ -169,7 +169,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> Neighborhood information </summary>
-        public Neighborhood? Neighborhood
+        public Neighborhood Neighborhood
         {
             get
             {
@@ -182,7 +182,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> Municipality information </summary>
-        public Municipality? Municipality
+        public Municipality Municipality
         {
             get
             {
@@ -208,7 +208,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Customer
             }
         }
         /// <summary> Address date created </summary>
-        public DateTime? DateCreated
+        public DateTime DateCreated
         {
             get
             {

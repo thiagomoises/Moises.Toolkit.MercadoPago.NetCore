@@ -1,9 +1,9 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Card
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Card
 {
-    public struct Identification
+    public class Identification
     {
         #region Properties 
-        private int? _number;
+        private int _number;
         private string _subtype;
         private string _type; 
         #endregion
@@ -12,7 +12,7 @@
         /// <summary>
         /// Identification number
         /// </summary>
-        public int? Number
+        public int Number
         {
             get { return _number;  }
             set { _number = value; }

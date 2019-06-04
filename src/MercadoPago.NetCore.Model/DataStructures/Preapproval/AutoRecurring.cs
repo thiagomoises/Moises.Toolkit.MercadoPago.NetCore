@@ -1,11 +1,11 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Preapproval
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preapproval
 {
-    public struct AutoRecurring
+    public class AutoRecurring
     {
         #region Properties 
 
@@ -15,8 +15,8 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preapproval
         private float transaction_amount;
         
         private CurrencyId currency_id;
-        private DateTime? start_date;
-        private DateTime? end_date;
+        private DateTime start_date;
+        private DateTime end_date;
 
         #endregion
 
@@ -53,7 +53,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preapproval
             set { currency_id = value; }
         }
 
-        public DateTime? Start_date
+        public DateTime StartDate
         {
             get
             {
@@ -67,7 +67,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preapproval
         }
 
 
-        public DateTime? End_date
+        public DateTime EndDate
         {
             get
             {

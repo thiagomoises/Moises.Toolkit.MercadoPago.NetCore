@@ -1,12 +1,12 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Payment;
-using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Payment;
+using MercadoPago.NetCore.Model.Resources.Enum;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
 
     /// <summary>
@@ -15,61 +15,61 @@ namespace MercadoPago.NetCore.Model
     public class Payment
     {
         #region Properties 
-        private long? _id;
-        private DateTime? _date_created;
-        private DateTime? _date_approved;
-        private DateTime? _date_last_updated;
-        private DateTime? _money_release_date;
-        private int? _collector_id; 
+        private long _id;
+        private DateTime _date_created;
+        private DateTime _date_approved;
+        private DateTime _date_last_updated;
+        private DateTime _money_release_date;
+        private int _collector_id; 
         [JsonConverter(typeof(StringEnumConverter))]
-        private OperationType? _operation_type;
+        private OperationType _operation_type;
         private Payer _payer;
-        private bool? _binary_mode;
-        private bool? _live_mode;
-        private Order? _order ;
+        private bool _binary_mode;
+        private bool _live_mode;
+        private Order _order ;
         private string _external_reference;
         private string _description;
         private JObject _metadata;
         [JsonConverter(typeof(StringEnumConverter))]
-        private CurrencyId? _currency_id;
-        private float? _transaction_amount;
-        private float? _transaction_amount_refunded;
-        private float? _coupon_amount;
-        private int? _campaign_id;
+        private CurrencyId _currency_id;
+        private float _transaction_amount;
+        private float _transaction_amount_refunded;
+        private float _coupon_amount;
+        private int _campaign_id;
         private string _coupon_code;
-        private TransactionDetail? _transaction_details;
+        private TransactionDetail _transaction_details;
         private List<FeeDetail> _fee_details;
-        private int? _differential_pricing_id;
-        private float? _application_fee;  
+        private int _differential_pricing_id;
+        private float _application_fee;  
         [JsonConverter(typeof(StringEnumConverter))]
-        private PaymentStatus? _status;         
+        private PaymentStatus _status;         
         private string _status_detail;
-        private bool? _capture ;
-        private bool? _captured;
+        private bool _capture ;
+        private bool _captured;
         private string _call_for_authorize_id;
         private string _payment_method_id;
         private string _issuer_id; 
         [JsonConverter(typeof(StringEnumConverter))]
-        private PaymentTypeId? _payment_type_id;        
+        private PaymentTypeId _payment_type_id;        
         private string _token ;
-        private DataStructures.Payment.Card? _card;
+        private Dataclassures.Payment.Card _card;
         private string _statement_descriptor;
-        private int? _installments ;
+        private int _installments ;
         private string _notification_url;
         private string _callback_url;
         private List<Refund> _refunds;
-        private AdditionalInfo? _additional_info; 
+        private AdditionalInfo _additional_info; 
         private string _processing_mode;
         private string _merchant_account_id;
-        private DateTime? _date_of_expiration;
-        private long? _sponsor_id;
+        private DateTime _date_of_expiration;
+        private long _sponsor_id;
         #endregion
 
         #region Accessors 
         /// <summary>
         /// Payment identifier
         /// </summary>
-        public long? Id
+        public long Id
         {
             get { return this._id; }
             private set { this._id = value; }
@@ -77,7 +77,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Payment’s creation date
         /// </summary>
-        public DateTime? DateCreated 
+        public DateTime DateCreated 
         {
             get { return this._date_created; }
             private set { this._date_created = value; }
@@ -85,7 +85,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Payment’s approval date
         /// </summary>
-        public DateTime? DateApproved
+        public DateTime DateApproved
         {
             get { return this._date_approved; }
             private set { this._date_approved = value; }
@@ -93,7 +93,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Last modified date
         /// </summary>
-        public DateTime? DateLastUpdated
+        public DateTime DateLastUpdated
         {
             get { return this._date_last_updated; }
             private set { this._date_last_updated = value; }
@@ -101,7 +101,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Release date of payment
         /// </summary>
-        public DateTime? MoneyReleaseDate
+        public DateTime MoneyReleaseDate
         {
             get { return this._money_release_date; }
             private set { this._money_release_date = value; }
@@ -109,7 +109,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Identifies the seller
         /// </summary>
-        public int? CollectorId
+        public int CollectorId
         {
             get { return this._collector_id; }
             private set { this._collector_id = value; }
@@ -117,7 +117,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Payment type
         /// </summary>
-        public OperationType? OperationType 
+        public OperationType OperationType 
         {
             get { return this._operation_type; }
             private set { this._operation_type = value; }
@@ -134,7 +134,7 @@ namespace MercadoPago.NetCore.Model
         /// When set to true, the payment can only be approved or rejected. 
         /// Otherwise in_process status is added
         /// </summary>
-        public bool? BinaryMode
+        public bool BinaryMode
         {
             get { return this._binary_mode; }
             set { this._binary_mode = value; }
@@ -142,7 +142,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Whether the payment will be processed in sandbox or in production mode
         /// </summary>
-        public bool? LiveMode
+        public bool LiveMode
         {
             get { return this._live_mode; }
             private set { this._live_mode = value; }
@@ -150,7 +150,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Order identifier
         /// </summary>
-        public Order? Order
+        public Order Order
         {
             get { return this._order; }
             set { this._order = value; }
@@ -182,7 +182,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// ID of the currency used in the payment
         /// </summary>
-        public CurrencyId? CurrencyId
+        public CurrencyId CurrencyId
         {
             get { return this._currency_id; }
             private set { this._currency_id = value; }
@@ -190,7 +190,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Product cost
         /// </summary>
-        public float? TransactionAmount
+        public float TransactionAmount
         {
             get { return this._transaction_amount; }
             set { this._transaction_amount = value; }
@@ -198,7 +198,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Total refunded amount in this payment
         /// </summary>
-        public float? TransactionAmountRefunded
+        public float TransactionAmountRefunded
         {
             get { return this._transaction_amount_refunded; }
             private set { this._transaction_amount_refunded = value; }
@@ -206,7 +206,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Amount of the coupon discount
         /// </summary>
-        public float? CouponAmount
+        public float CouponAmount
         {
             get { return this._coupon_amount; }
             set { this._coupon_amount = value; }
@@ -214,7 +214,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Discount campaign ID
         /// </summary>
-        public int? CampaignId
+        public int CampaignId
         {
             private get { return this._campaign_id; }
             set { this._campaign_id = value; }
@@ -230,7 +230,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Groups the details of the transaction
         /// </summary>
-        public TransactionDetail? TransactionDetails
+        public TransactionDetail TransactionDetails
         {
             get { return this._transaction_details; }
             private set { this._transaction_details = value; }
@@ -246,7 +246,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Id of the scheme for the absorption of financing fee
         /// </summary>
-        public int? DifferentialPricingId
+        public int DifferentialPricingId
         {
             get { return this._differential_pricing_id; }
             set { this._differential_pricing_id = value; }
@@ -254,7 +254,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Fee collected by a marketplace or MercadoPago Application
         /// </summary>
-        public float? ApplicationFee
+        public float ApplicationFee
         {
             private get { return this._application_fee; }
             set { this._application_fee = value; }
@@ -262,7 +262,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Payment status
         /// </summary>
-        public PaymentStatus? Status
+        public PaymentStatus Status
         {
             get { return this._status; }
             set { this._status = value; }
@@ -278,7 +278,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Gives more detailed information on the current state or rejection cause
         /// </summary>
-        public bool? Capture
+        public bool Capture
         {
             private get { return this._capture; }
             set { this._capture = value; }
@@ -286,7 +286,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Gives more detailed information on the current state or rejection cause
         /// </summary>
-        public bool? Captured
+        public bool Captured
         {
             get { return this._captured; }
             private set { this._captured = value; }
@@ -318,7 +318,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Type of payment method chosen
         /// </summary>
-        public PaymentTypeId? PaymentTypeId
+        public PaymentTypeId PaymentTypeId
         {
             get { return this._payment_type_id; }
             private set { this._payment_type_id = value; }
@@ -334,7 +334,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Details of the card used
         /// </summary>
-        public DataStructures.Payment.Card? Card
+        public Dataclassures.Payment.Card Card
         {
             get { return this._card; }
             private set { this._card = value; }
@@ -350,7 +350,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Selected quantity of installments
         /// </summary>
-        public int? Installments
+        public int Installments
         {
             get { return this._installments; }
             set { this._installments = value; }
@@ -383,9 +383,9 @@ namespace MercadoPago.NetCore.Model
         /// Data that could improve fraud analysis and conversion rates. 
         /// Try to send as much information as possible.
         /// </summary>
-        public AdditionalInfo? AdditionalInfo
+        public AdditionalInfo AdditionalInfo
         {
-            private get { return this._additional_info; }
+            get { return this._additional_info; }
             set { this._additional_info = value; }
         }
         /// <summary>
@@ -405,7 +405,7 @@ namespace MercadoPago.NetCore.Model
             set { _merchant_account_id = value; }
         }
 
-        public DateTime? DateOfExpiration
+        public DateTime DateOfExpiration
         {
             get { return _date_of_expiration; } 
             set { _date_of_expiration = value; }
@@ -414,7 +414,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Sponsor Identification
         /// </summary>
-        public long? SponsorId
+        public long SponsorId
         {
             get { return _sponsor_id; } 
             set { _sponsor_id = value; }

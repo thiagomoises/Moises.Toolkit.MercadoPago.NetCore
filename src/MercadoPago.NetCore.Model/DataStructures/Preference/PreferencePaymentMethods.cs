@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Preference
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct PaymentMethods
+    public class PreferencePaymentMethods
     {
         #region Properties 
         private List<PaymentMethod> _excluded_payment_methods;
@@ -10,7 +10,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         
         private string _default_payment_method_id;
         private int? _installments;
-        private int? _default_installments; 
+        private int _default_installments; 
         #endregion
 
         #region Accessors 
@@ -62,7 +62,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Maximum number of credit card installments to be accepted
         /// </summary> 
-        public int? Installments
+        public int Installments
         {
             get
             {
@@ -77,7 +77,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Prefered number of credit card installments
         /// </summary>
-        public int? DefaultInstallments
+        public int DefaultInstallments
         {
             get
             {

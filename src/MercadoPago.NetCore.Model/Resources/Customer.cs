@@ -1,9 +1,9 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Customer;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Customer;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Customer
     {
@@ -13,19 +13,19 @@ namespace MercadoPago.NetCore.Model
         private string _email;
         private string _first_name;
         private string _last_name;
-        private Phone? _phone;
-        private Identification? _identification;
+        private Phone _phone;
+        private Identification _identification;
         private string _default_address;
-        private Address? _address;
-        private DateTime? _date_registered;
+        private Address _address;
+        private DateTime _date_registered;
         private string _description;
-        private DateTime? _date_created;
-        private DateTime? _date_last_updated;
+        private DateTime _date_created;
+        private DateTime _date_last_updated;
         private JObject _metadata;
         private string _default_card;
         private List<Card> _cards = new List<Card>();
         private List<CustomerAddress> _addresses = new List<CustomerAddress>();
-        private bool? _live_mode; 
+        private bool _live_mode; 
         #endregion
 
         #region Accessors
@@ -60,11 +60,11 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Customer phone's information
         /// </summary>
-        public Phone? Phone { get {  return _phone; } set {  _phone = value; } }
+        public Phone Phone { get {  return _phone; } set {  _phone = value; } }
         /// <summary>
         /// Customer identification's information
         /// </summary>
-        public Identification? Identification { get {  return _identification; } set {  _identification = value; } }
+        public Identification Identification { get {  return _identification; } set {  _identification = value; } }
         /// <summary>
         /// Customer's default address
         /// </summary>
@@ -72,11 +72,11 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Default address's information
         /// </summary>
-        public Address? Address { get { return _address; } set {  _address = value; } }
+        public Address Address { get { return _address; } set {  _address = value; } }
         /// <summary>
         /// Customer's registration date
         /// </summary>
-        public DateTime? DateRegistered { get { return _date_registered; } set {  _date_registered = value; } }
+        public DateTime DateRegistered { get { return _date_registered; } set {  _date_registered = value; } }
         /// <summary>
         /// Customer's description
         /// </summary>
@@ -84,11 +84,11 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Customer's date created
         /// </summary>
-        public DateTime? DateCreated { get { return _date_created; } set {  _date_created = value; } }
+        public DateTime DateCreated { get { return _date_created; } set {  _date_created = value; } }
         /// <summary>
         /// Last modified date
         /// </summary>
-        public DateTime? DateLastUpdated { get { return _date_last_updated; } set {  _date_last_updated = value; } }
+        public DateTime DateLastUpdated { get { return _date_last_updated; } set {  _date_last_updated = value; } }
         /// <summary>
         /// Customer's metadata
         /// </summary>
@@ -108,7 +108,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Whether the customers will be in sandbox or in production mode
         /// </summary>
-        public bool? LiveMode { get { return _live_mode; } set {  _live_mode = value; } }
+        public bool LiveMode { get { return _live_mode; } set {  _live_mode = value; } }
         #endregion
     }
 }

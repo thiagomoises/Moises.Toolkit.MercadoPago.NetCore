@@ -1,7 +1,7 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Plan;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Plan;
 using System;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Plan
     {
@@ -11,8 +11,8 @@ namespace MercadoPago.NetCore.Model
         private string status;
         private string description;
         private string external_reference;
-        private DateTime? date_created;
-        private DateTime? last_modified;
+        private DateTime date_created;
+        private DateTime last_modified;
         private AutoRecurring auto_recurring;
         private Boolean live_mode;
         private float setup_fee;
@@ -34,7 +34,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public float Application_fee
+        public float ApplicationFee
         {
             get
             {
@@ -73,7 +73,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public string External_reference
+        public string ExternalReference
         {
             get
             {
@@ -86,7 +86,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public DateTime? Date_created
+        public DateTime DateCreated
         {
             get
             {
@@ -99,7 +99,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public DateTime? Last_modified
+        public DateTime LastModified
         {
             get
             {
@@ -112,7 +112,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public AutoRecurring Auto_recurring
+        public AutoRecurring AutoRecurring
         {
             get
             {
@@ -125,7 +125,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public bool Live_mode
+        public bool LiveMode
         {
             get
             {
@@ -138,7 +138,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public float Setup_fee
+        public float SetupFee
         {
             get
             {

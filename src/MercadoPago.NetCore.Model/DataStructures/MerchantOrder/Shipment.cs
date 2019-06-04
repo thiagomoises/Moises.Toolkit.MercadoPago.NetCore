@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.MerchantOrder
 {
-    public struct Shipment
+    public class Shipment
     {
         #region Properties
 
@@ -25,7 +25,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
 
         #region Accessors
 
-        public int ID
+        public int Id
         {
             get { return id; }
             set { id = value; }
@@ -61,7 +61,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
             set { substatus = value; }
         }
 
-        public Object Item
+        public Object Items
         {
             get { return item; }
             set { item = value; }

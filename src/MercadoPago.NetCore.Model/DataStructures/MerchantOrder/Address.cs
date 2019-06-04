@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.MerchantOrder
 {
-    public struct Address
+    public class Address
     {
         #region Properties
 

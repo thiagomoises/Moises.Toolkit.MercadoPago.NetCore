@@ -1,11 +1,13 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Plan
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
+
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Plan
 {
-    public struct FreeTrial
+    public class FreeTrial
     {
         #region Properties
 
         private int frequency;
-        private string frequencyType;
+        private FrequencyType frequencyType;
 
         #endregion
 
@@ -15,7 +17,7 @@
             get { return  frequency; } 
             set {  frequency = value; } 
         }
-        public string FrequencyType 
+        public FrequencyType FrequencyType 
         { 
             get { return  frequencyType; } 
             set {  frequencyType = value; } 

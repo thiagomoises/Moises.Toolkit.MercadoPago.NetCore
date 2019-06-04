@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.PaymentMethod
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.PaymentMethod
 {
-    public struct CardNumber
+    public class CardNumber
     {
         private string _length;
         private string _validation;

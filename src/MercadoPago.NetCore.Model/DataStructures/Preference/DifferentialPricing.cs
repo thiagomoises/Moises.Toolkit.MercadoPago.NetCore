@@ -1,16 +1,16 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Preference
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct DifferentialPricing
+    public class DifferentialPricing
     {
         #region Properties 
-        private int? _id; 
+        private int _id; 
         #endregion
 
         #region Accessors
         /// <summary>
         /// Differential pricing ID
         /// </summary>
-        public int? Id
+        public int Id
         {
             get{ return this._id; }
             set{ this._id = value; }

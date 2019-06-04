@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.PaymentMethod
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.PaymentMethod
 {
-    public struct Bin
+    public class Bin
     {
         private string _pattern;
         private string _exclusion_pattern;

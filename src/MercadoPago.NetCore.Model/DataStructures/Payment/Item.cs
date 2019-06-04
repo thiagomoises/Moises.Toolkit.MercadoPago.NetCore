@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Payment
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct Item
+    public class Item
     {
         #region Properties 
         private string _id;
@@ -8,8 +8,8 @@
         private string _description;
         private string _picture_url;
         private string _category_id;
-        private int? _quantity;
-        private decimal? _unit_price;
+        private int _quantity;
+        private decimal _unit_price;
         #endregion
 
         #region Accessors 
@@ -51,14 +51,14 @@
         /// <summary>
         /// Item's quantity
         /// </summary>
-        public int? Quantity {
+        public int Quantity {
             get { return  _quantity; } 
             set { _quantity = value; } 
         }
         /// <summary>
         /// Unit price
         /// </summary>
-        public decimal? UnitPrice { 
+        public decimal UnitPrice { 
             get { return  _unit_price; } 
             set { _unit_price = value; } 
         }

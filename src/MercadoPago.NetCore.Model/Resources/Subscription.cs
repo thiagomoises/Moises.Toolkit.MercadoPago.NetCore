@@ -1,5 +1,5 @@
 ﻿using System;
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Subscription
     {

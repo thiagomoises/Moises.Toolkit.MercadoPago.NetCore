@@ -1,26 +1,26 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Preference
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct Shipment
+    public class Shipment
     {
         #region Properties
-        private ShipmentMode? _mode;
+        private ShipmentMode _mode;
         private bool _local_pick_up;
         private string _dimensions;
         private int _default_shipping_method;
         private List<int> _free_methods;
         private float _cost;
         private bool _free_shipping;
-        private ReceiverAddress? _receiver_address;  
+        private ReceiverAddress _receiver_address;  
         #endregion
 
         #region Accessors
         /// <summary>
         /// Shipment mode
         /// </summary>
-        public ShipmentMode? Mode
+        public ShipmentMode Mode
         { 
             get { return  _mode; } 
             set {  _mode = value; }
@@ -72,7 +72,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Shipping address
         /// </summary>
-        public ReceiverAddress? ReceiverAddress
+        public ReceiverAddress ReceiverAddress
         {
             get { return  _receiver_address; } 
             set {  _receiver_address = value; } 

@@ -1,10 +1,10 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Payment
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct CardHolder
+    public class CardHolder
     {
         #region Properties 
         private string _name;        
-        private Identification? _identification;    
+        private Identification _identification;    
         #endregion
 
         #region Accessors
@@ -19,7 +19,7 @@
         /// <summary>
         /// ID of the cardholder
         /// </summary>
-        public Identification? Identification
+        public Identification Identification
         {
             get { return  _identification; } 
             set { _identification = value; }

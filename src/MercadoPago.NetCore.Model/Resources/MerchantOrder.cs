@@ -1,8 +1,8 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.MerchantOrder;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.MerchantOrder;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class MerchantOrder
     {
@@ -10,26 +10,26 @@ namespace MercadoPago.NetCore.Model
 
         private string id;
         private string preferenceId;
-        private DateTime? dateCreated;
-        private DateTime? lastUpdate;
+        private DateTime dateCreated;
+        private DateTime lastUpdate;
         private string applicationId;
         private string status;
         private string siteId;
         private Payer payer;
         private Collector collector;
-        private long? sponsorId;
+        private long sponsorId;
         private List<MerchantOrderPayment> payments;
-        private float? paidAmount;
-        private float? refundedAmount;
-        private float? shippingCost;
-        private bool? cancelled;
+        private float paidAmount;
+        private float refundedAmount;
+        private float shippingCost;
+        private bool cancelled;
         private List<Item> items;
         private List<Shipment> shipments;
         private string notificationUrl;
         private string additionalInfo;
         private string externalReference;
         private string marketplace;
-        private float? totalAmount;
+        private float totalAmount;
 
         #endregion
 
@@ -47,14 +47,14 @@ namespace MercadoPago.NetCore.Model
             set { preferenceId = value; }
         }        
 
-        public DateTime? DateCreated
+        public DateTime DateCreated
         {
             get { return dateCreated; }            
         }
 
         
 
-        public DateTime? LastUpdate
+        public DateTime LastUpdate
         {
             get { return lastUpdate; }            
         }
@@ -88,7 +88,7 @@ namespace MercadoPago.NetCore.Model
             set { collector = value; }
         }
 
-        public long? SponsorId
+        public long SponsorId
         {
             get { return sponsorId; }
             set { sponsorId = value; }
@@ -99,22 +99,22 @@ namespace MercadoPago.NetCore.Model
             get { return payments; }            
         }        
 
-        public float? PaidAmount
+        public float PaidAmount
         {
             get { return paidAmount; }            
         }
        
-        public float? RefundedAmount
+        public float RefundedAmount
         {
             get { return refundedAmount; }            
         }
 
-        public float? ShippingCost
+        public float ShippingCost
         {
             get { return shippingCost; }            
         }
 
-        public bool? Cancelled
+        public bool Cancelled
         {
             get { return cancelled; }
             set { cancelled = value; }
@@ -174,7 +174,7 @@ namespace MercadoPago.NetCore.Model
             set { marketplace = value; }
         }
        
-        public float? TotalAmount
+        public float TotalAmount
         {
             get { return totalAmount; }
         }

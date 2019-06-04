@@ -1,18 +1,18 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct Card
+    public class Card
     {
         #region Properties 
         private string _id;
         private string _lastFourDigits;
         private string _firstSixDigits;
-        private int? _expirationYear;
-        private int? _expirationMonth;
-        private DateTime? _dateCreated;
-        private DateTime? _dateLastUpdated;
-        private CardHolder? _cardHolder;
+        private int _expirationYear;
+        private int _expirationMonth;
+        private DateTime _dateCreated;
+        private DateTime _dateLastUpdated;
+        private CardHolder _cardHolder;
         #endregion
 
         #region Accessors
@@ -43,7 +43,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Card expiration year
         /// </summary>
-        public int? ExpirationYear
+        public int ExpirationYear
         {
             get { return  _expirationYear; }
             set {  _expirationYear = value; }
@@ -51,7 +51,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Card expiration month
         /// </summary>
-        public int? ExpirationMonth
+        public int ExpirationMonth
         {
             get { return  _expirationMonth; }
             set {  _expirationMonth = value; }
@@ -59,7 +59,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Creation date of card
         /// </summary>
-        public DateTime? DateCreated
+        public DateTime DateCreated
         {
             get { return  _dateCreated; }
             set {  _dateCreated = value; }
@@ -67,7 +67,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Last update of data from the card
         /// </summary>
-        public DateTime? DateLastUpdated
+        public DateTime DateLastUpdated
         {
             get { return  _dateLastUpdated; }
             set {  _dateLastUpdated = value; }
@@ -75,7 +75,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Card's owner data
         /// </summary>
-        public CardHolder? CardHolder
+        public CardHolder CardHolder
         {
             get { return  _cardHolder; }
             set {  _cardHolder = value; }

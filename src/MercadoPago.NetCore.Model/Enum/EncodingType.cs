@@ -2,7 +2,7 @@
 using Newtonsoft.Json.Converters;
 using System.ComponentModel;
 
-namespace MercadoPago.NetCore.Model.Enum
+namespace MercadoPago.NetCore.Model.Resources.Enum
 {
     [JsonConverter(typeof(StringEnumConverter))]
     public enum EncodingType

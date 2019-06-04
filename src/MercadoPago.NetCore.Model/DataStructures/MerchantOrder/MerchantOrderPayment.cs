@@ -1,9 +1,9 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.MerchantOrder
 {
-    public struct MerchantOrderPayment
+    public class MerchantOrderPayment
     {
         #region Properties
 
@@ -31,7 +31,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
 
         #region Accessors
 
-        public string ID
+        public string Id
         {
             get { return id; }            
         }

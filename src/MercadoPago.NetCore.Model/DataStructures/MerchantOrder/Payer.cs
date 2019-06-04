@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.MerchantOrder
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.MerchantOrder
 {
-    public struct Payer
+    public class Payer
     {
         #region Properties
 
@@ -12,7 +12,7 @@
 
         #region Accessors
 
-        public string ID
+        public string Id
         {
             get { return id; }
             set { id = value; }

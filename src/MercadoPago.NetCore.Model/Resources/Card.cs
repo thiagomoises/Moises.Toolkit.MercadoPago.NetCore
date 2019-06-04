@@ -1,23 +1,23 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Card;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Card;
 using System;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Card
     {
         #region Properties  
         private string _id;
         private string _customer_id;
-        private int? _expiration_month;
-        private int? _expiration_year;
+        private int _expiration_month;
+        private int _expiration_year;
         private string _first_six_digits;
         private string _last_four_digits;
-        private CardPaymentMethod? _payment_method;
-        private SecurityCode? _security_code;
-        private Issuer? _issuer;
-        private CardHolder? _card_holder;
-        private DateTime? _date_created;
-        private DateTime? _date_last_updated;
+        private CardPaymentMethod _payment_method;
+        private SecurityCode _security_code;
+        private Issuer _issuer;
+        private CardHolder _card_holder;
+        private DateTime _date_created;
+        private DateTime _date_last_updated;
         private string _token;
         #endregion
 
@@ -53,7 +53,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Card's expiration month
         /// </summary>
-        public int? ExpirationMonth
+        public int ExpirationMonth
         {
             get
             {
@@ -68,7 +68,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Card's expiration year
         /// </summary>
-        public int? ExpirationYear
+        public int ExpirationYear
         {
             get
             {
@@ -113,7 +113,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Payment method information
         /// </summary>
-        public CardPaymentMethod? PaymentMethod
+        public CardPaymentMethod PaymentMethod
         {
             get
             {
@@ -128,7 +128,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Security code information
         /// </summary>
-        public SecurityCode? SecurityCode
+        public SecurityCode SecurityCode
         {
             get
             {
@@ -143,7 +143,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Issuer information
         /// </summary>
-        public Issuer? Issuer 
+        public Issuer Issuer 
         {
             get
             {
@@ -158,7 +158,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Card holder information
         /// </summary>
-        public CardHolder? CardHolder
+        public CardHolder CardHolder
         {
             get
             {
@@ -173,7 +173,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Card's date created
         /// </summary>
-        public DateTime? DateCreated 
+        public DateTime DateCreated 
         {
             get
             {
@@ -188,7 +188,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Card's last modified date
         /// </summary>
-        public DateTime? DateLastUpdated 
+        public DateTime DateLastUpdated 
         {
             get
             {

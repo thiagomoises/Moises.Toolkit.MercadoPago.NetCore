@@ -1,4 +1,4 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Auth;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using moisesToolkit.MercadoPago.NetCore.JsonMaps;
 using Newtonsoft.FluentAPI.Resolvers;
 using Newtonsoft.Json;

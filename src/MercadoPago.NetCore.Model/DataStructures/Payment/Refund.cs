@@ -1,17 +1,17 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct Refund
+    public class Refund
     {
         #region Properties 
         private int _id;
         private int _payment_id;
         private float _amount;
         private JObject _metadata;
-        private Source? _source;
-        private DateTime? _created_date;
+        private Source _source;
+        private DateTime _created_date;
         private string _unique_sequence_number;
         #endregion
 
@@ -48,14 +48,14 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
         /// <summary>
         /// Who made the refund
         /// </summary>
-        public Source? Source { 
+        public Source Source { 
             get { return  _source; } 
             private set { _source = value; } 
         }
         /// <summary>
         /// Date of refund
         /// </summary>
-        public DateTime? CreatedDate { 
+        public DateTime CreatedDate { 
             get { return  _created_date; } 
             private set { _created_date = value; } 
         }

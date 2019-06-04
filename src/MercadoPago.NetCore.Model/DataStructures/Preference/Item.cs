@@ -1,8 +1,8 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Preference
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct Item
+    public class Item
     {
         #region Properties 
         
@@ -14,11 +14,11 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         
         private string _pictureU_url;
         
-        private int? _category_id;
-        private int? _quantity;
+        private int _category_id;
+        private int _quantity;
         
         private CurrencyId _currency_id;
-        private decimal unit_price; 
+        private decimal _unit_price; 
         #endregion
 
         #region Accessors 
@@ -57,7 +57,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Item category ID
         /// </summary>
-        public int? CategoryId
+        public int CategoryId
         {
             get { return  _category_id; }
             set {  _category_id = value; }
@@ -65,7 +65,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Item quantity
         /// </summary>
-        public int? Quantity
+        public int Quantity
         {
             get { return  _quantity; }
             set {  _quantity = value; }
@@ -83,8 +83,8 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// </summary>
         public decimal UnitPrice
         {
-            get { return  unit_price; } 
-            set {  unit_price = value; }
+            get { return  _unit_price; } 
+            set {  _unit_price = value; }
         } 
         #endregion
     }

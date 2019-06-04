@@ -1,8 +1,8 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct Source
+    public class Source
     {
         #region Properties 
         private string _id;

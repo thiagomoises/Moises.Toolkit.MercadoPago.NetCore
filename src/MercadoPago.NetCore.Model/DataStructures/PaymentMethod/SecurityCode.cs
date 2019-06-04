@@ -1,8 +1,8 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 
-namespace MercadoPago.NetCore.Model.DataStructures.PaymentMethod
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.PaymentMethod
 {
-    public struct SecurityCode
+    public class SecurityCode
     {
         private SecurityCodeMode _mode;
         private int _length;

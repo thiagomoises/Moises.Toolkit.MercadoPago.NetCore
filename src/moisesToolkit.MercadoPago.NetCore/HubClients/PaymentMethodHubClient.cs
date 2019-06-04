@@ -1,4 +1,4 @@
-﻿using MercadoPago.NetCore.Model;
+﻿using MercadoPago.NetCore.Model.Resources;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net.Http;

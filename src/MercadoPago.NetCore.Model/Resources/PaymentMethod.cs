@@ -1,9 +1,9 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.PaymentMethod;
-using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.PaymentMethod;
+using MercadoPago.NetCore.Model.Resources.Enum;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class PaymentMethod 
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Auth
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Auth
 {
     public class Ticket
     {

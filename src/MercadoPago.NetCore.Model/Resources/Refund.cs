@@ -1,13 +1,13 @@
 ﻿using System;
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Refund
     {
         #region Properties
-        private decimal? _id;
-        private decimal? _amount;
-        private decimal? _payment_id;
-        private DateTime? _date_created;
+        private decimal _id;
+        private decimal _amount;
+        private decimal _payment_id;
+        private DateTime _date_created;
         private String _errors;
 
         #endregion
@@ -18,7 +18,7 @@ namespace MercadoPago.NetCore.Model
             this.PaymentId = id;
         }
 
-        public decimal? Id
+        public decimal Id
         {
             get
             {
@@ -31,7 +31,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public decimal? Amount
+        public decimal Amount
         {
             get
             {
@@ -44,7 +44,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public decimal? PaymentId
+        public decimal PaymentId
         {
             get
             {
@@ -57,7 +57,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public DateTime? DateCreated
+        public DateTime DateCreated
         {
             get
             {

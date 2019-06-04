@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Customer
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Customer
 {
-    public struct Verification
+    public class Verification
     {
         #region Properties
 

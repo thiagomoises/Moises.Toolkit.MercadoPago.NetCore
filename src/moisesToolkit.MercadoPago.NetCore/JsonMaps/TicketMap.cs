@@ -1,4 +1,4 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Auth;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using Newtonsoft.FluentAPI.Abstracts;
 using Newtonsoft.FluentAPI.Builders;
 using System;

@@ -1,8 +1,8 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Preapproval;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Preapproval;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     public class Preapproval
     {
@@ -15,7 +15,7 @@ namespace MercadoPago.NetCore.Model
         private string _sandbox_init_point;
         private string _external_reference;
         private string _reason;
-        private AutoRecurring? _auto_recurring;
+        private AutoRecurring _auto_recurring;
 
         #endregion
 
@@ -116,7 +116,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Auro Recurring Information
         /// </summary>
-        public AutoRecurring? AutoRecurring
+        public AutoRecurring AutoRecurring
         {
             get
             {

@@ -1,18 +1,18 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct Barcode
+    public class Barcode
     {
         #region Properties 
-        private EncodingType? _encoding_type;
+        private EncodingType _encoding_type;
         private string _content;
-        private int? width;
-        private int? height;
+        private int width;
+        private int height;
         #endregion
 
         #region Accessors 
-        public EncodingType? Encoding_type
+        public EncodingType Encoding_type
         {
             get
             {
@@ -36,7 +36,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
                 _content = value;
             }
         }
-        public int? Width {
+        public int Width {
             get
             {
                 return width;
@@ -47,7 +47,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
                 width = value;
             }
         }
-        public int? Height 
+        public int Height 
         {
             get
             {

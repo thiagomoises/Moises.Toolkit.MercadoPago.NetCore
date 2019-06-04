@@ -1,15 +1,15 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Payment
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct AdditionalInfoPayer
+    public class AdditionalInfoPayer
     {
         #region Properties 
         private String _first_name;
         private String _last_name;
-        private Phone? _phone;
-        private Address? _address;
-        private DateTime? _registration_date; 
+        private Phone _phone;
+        private Address _address;
+        private DateTime _registration_date; 
         #endregion
 
         #region Accessors
@@ -26,19 +26,19 @@ namespace MercadoPago.NetCore.Model.DataStructures.Payment
             get { return _last_name; }
         }
        
-        public Phone? Phone
+        public Phone Phone
         {            
             set { _phone = value; }
             get { return _phone; }
         }
        
-        public Address? Address
+        public Address Address
         {            
             set { _address = value; }
             get { return _address; }
         }
        
-        public DateTime? RegistrationDate
+        public DateTime RegistrationDate
         {            
             set { _registration_date = value; }
             get { return _registration_date; }

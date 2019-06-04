@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Payment
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Payment
 {
-    public struct TransactionDetail
+    public class TransactionDetail
     {
         #region Properties 
         private string _financial_institution;

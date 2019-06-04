@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Preference
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct Payer
+    public class Payer
     {
         #region Properties 
         
@@ -11,10 +11,10 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         private string _surname;
         
         private string _email;
-        private Phone? _phone;
-        private Identification? _identification;
-        private Address? _address;
-        private DateTime? _date_created; 
+        private Phone _phone;
+        private Identification _identification;
+        private Address _address;
+        private DateTime _date_created; 
         #endregion
 
         #region Accessors
@@ -42,14 +42,14 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Buyer phone
         /// </summary>
-        public Phone? Phone { 
+        public Phone Phone { 
             get { return  _phone; } 
             set { _phone = value; } 
         }
         /// <summary>
         /// Personal identification
         /// </summary>
-        public Identification? Identification 
+        public Identification Identification 
         { 
             get { return  _identification; } 
             set { _identification = value; } 
@@ -57,7 +57,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Buyer address
         /// </summary>
-        public Address? Address
+        public Address Address
         {
             get { return  _address; }
             set { _address = value; }
@@ -65,7 +65,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Preference
         /// <summary>
         /// Registration date
         /// </summary>
-        public DateTime? Date_created 
+        public DateTime DateCreated 
         { 
             get { return  _date_created; }
             set { _date_created = value; }

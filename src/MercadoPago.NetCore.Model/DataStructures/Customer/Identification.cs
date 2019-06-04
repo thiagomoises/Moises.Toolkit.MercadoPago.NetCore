@@ -1,10 +1,11 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Customer
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Customer
 {
-    public struct Identification
+    public class Identification
     {
         #region Properties 
         private string _type;
         private string _number; 
+        private string _defaultAddress;
         #endregion
 
         #region Accessors
@@ -23,7 +24,15 @@
         {
             get { return _number; }
             set { _number = value; }
-        } 
-        #endregion      
+        }
+        /// <summary>
+        /// Default address
+        /// </summary>
+        public string DefaultAddress
+        {
+            get { return _defaultAddress; }
+            set { _defaultAddress = value; }
+        }
+        #endregion
     }
 }

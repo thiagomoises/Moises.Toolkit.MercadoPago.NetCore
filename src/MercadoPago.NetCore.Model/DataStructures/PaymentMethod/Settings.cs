@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.PaymentMethod
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.PaymentMethod
 {
-    public struct Settings
+    public class Settings
     {
         private Bin _bin;
         private CardNumber _card_number;

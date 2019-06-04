@@ -1,9 +1,9 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Card
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Card
 {
-    public struct SecurityCode
+    public class SecurityCode
     {
         #region Properties 
-        private int? _length;
+        private int _length;
         private string _card_location; 
         #endregion
 
@@ -11,7 +11,7 @@
         /// <summary>
         /// Security code's length
         /// </summary>
-        public int? Length { 
+        public int Length { 
             get { return  _length; } 
             set { _length = value; } 
         }

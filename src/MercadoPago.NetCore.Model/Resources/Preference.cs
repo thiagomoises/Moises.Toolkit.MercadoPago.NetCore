@@ -1,11 +1,11 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Preference;
-using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Preference;
+using MercadoPago.NetCore.Model.Resources.Enum;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 
-namespace MercadoPago.NetCore.Model
+namespace MercadoPago.NetCore.Model.Resources
 {
     /// <summary>
     /// This API allows you to set up, during the payment process, 
@@ -16,32 +16,30 @@ namespace MercadoPago.NetCore.Model
         #region Properties
 
         private List<Item> _items;
-        private Payer? _payer;
-        private PaymentMethods? _payment_methods;
-        private Shipment? _shipments;
-        private BackUrls? _back_urls;
+        private Payer _payer;
+        private PreferencePaymentMethods _payment_methods;
+        private Shipment _shipments;
+        private BackUrls _back_urls;
         private string _notification_url;
         private string _id;
         private string _init_point;
         private string _sandbox_init_point;
-        private DateTime? _date_created;
-        [JsonConverter(typeof(StringEnumConverter))]
-        private OperationType? _operation_type;
+        private DateTime _date_created;
+        private OperationType _operation_type;
         private string _additionalInfo;
-        [JsonConverter(typeof(StringEnumConverter))]
-        private AutoReturnType? _auto_return;
+        private AutoReturnType _auto_return;
         private string _external_reference;
-        private bool? _expires;
-        private DateTime? _expiration_date_from;
-        private DateTime? _expiration_dateTo;
-        private int? _collector_id;
+        private bool _expires;
+        private DateTime _expiration_date_from;
+        private DateTime _expiration_dateTo;
+        private int _collector_id;
         private string _client_id;
         private string _marketplace;
-        private float? _marketplace_fee;
-        private DifferentialPricing? _differential_pricing;
-        private long? _sponsor_id;
+        private float _marketplace_fee;
+        private DifferentialPricing _differential_pricing;
+        private long _sponsor_id;
         private List<ProcessingMode> _processing_modes;
-        private bool? _binary_mode;
+        private bool _binary_mode;
         #endregion
 
         #region Accesors
@@ -49,7 +47,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Buyer Information
         /// </summary>
-        public Payer? Payer 
+        public Payer Payer 
         {
             get
             {
@@ -64,7 +62,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Set up payment methods to be excluded from the payment process
         /// </summary>
-        public PaymentMethods? PaymentMethods
+        public PreferencePaymentMethods PaymentMethods
         {
             get
             {
@@ -79,7 +77,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Shipments information
         /// </summary>
-        public Shipment? Shipments
+        public Shipment Shipments
         {
             get
             {
@@ -94,7 +92,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// URLs to return to the sellers website
         /// </summary>
-        public BackUrls? BackUrls
+        public BackUrls BackUrls
         {
             get
             {
@@ -169,7 +167,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Preference's creation date
         /// </summary>
-        public DateTime? Datecreated
+        public DateTime DateCreated
         {
             get
             {
@@ -184,7 +182,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Operation data_type
         /// </summary>
-        public OperationType? OperationType
+        public OperationType OperationType
         {
             get
             {
@@ -214,7 +212,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// If specified, your buyers will be redirected back to your site immediately after completing the purchase
         /// </summary>
-        public AutoReturnType? AutoReturn 
+        public AutoReturnType AutoReturn 
         {
             get
             {
@@ -244,7 +242,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Boolean value that determines if a preference expire
         /// </summary>
-        public bool? Expires 
+        public bool Expires 
         {
             get
             {
@@ -259,7 +257,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Date since the preference will be active
         /// </summary>
-        public DateTime? ExpirationDateFrom 
+        public DateTime ExpirationDateFrom 
         {
             get
             {
@@ -274,7 +272,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Date when the preference will be expired
         /// </summary>
-        public DateTime? ExpirationDateTo 
+        public DateTime ExpirationDateTo 
         {
             get
             {
@@ -289,7 +287,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Your MercadoPago seller ID
         /// </summary>
-        public int? CollectorId 
+        public int CollectorId 
         {
             get
             {
@@ -334,7 +332,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Marketplace's fee charged by application owner. Default value: 0%
         /// </summary>
-        public float? Marketplace_fee 
+        public float MarketplaceFee 
         {
             get
             {
@@ -349,7 +347,7 @@ namespace MercadoPago.NetCore.Model
         /// <summary>
         /// Differential pricing configuration for this preference
         /// </summary>
-        public DifferentialPricing? Differential_pricing 
+        public DifferentialPricing DifferentialPricing 
         {
             get
             {
@@ -379,7 +377,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public long? SponsorId
+        public long SponsorId
         {
             get
             {
@@ -409,7 +407,7 @@ namespace MercadoPago.NetCore.Model
             }
         }
 
-        public bool? BinaryMode
+        public bool BinaryMode
         {
             get
             {

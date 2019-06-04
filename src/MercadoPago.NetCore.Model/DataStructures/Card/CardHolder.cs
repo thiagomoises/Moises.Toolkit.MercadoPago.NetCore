@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Card
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Card
 {
-    public struct CardHolder
+    public class CardHolder
     {
         #region Properties 
         private string _name;

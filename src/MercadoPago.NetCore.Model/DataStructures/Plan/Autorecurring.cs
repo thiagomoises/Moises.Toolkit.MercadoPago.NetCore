@@ -1,13 +1,13 @@
-﻿using MercadoPago.NetCore.Model.Enum;
+﻿using MercadoPago.NetCore.Model.Resources.Enum;
 
-namespace MercadoPago.NetCore.Model.DataStructures.Plan
+namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Plan
 {
-    public struct AutoRecurring
+    public class AutoRecurring
     {
         #region Properties
 
         private int frequency;
-        private string frequencyType;
+        private FrequencyType frequencyType;
         private float transactionAmount;
         private CurrencyId currencyId;
         private int repetitions;
@@ -30,7 +30,7 @@ namespace MercadoPago.NetCore.Model.DataStructures.Plan
             }
         }
 
-        public string FrequencyType
+        public FrequencyType FrequencyType
         {
             get
             {

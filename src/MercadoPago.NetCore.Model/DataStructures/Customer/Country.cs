@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Customer
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Customer
 {
-    public struct Country
+    public class Country
     {
         #region Properties
 

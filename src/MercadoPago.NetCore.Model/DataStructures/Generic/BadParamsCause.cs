@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Generic
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Generic
 {
-    public struct BadParamsCause
+    public class BadParamsCause
     {
         #region Properties
         private string _code;

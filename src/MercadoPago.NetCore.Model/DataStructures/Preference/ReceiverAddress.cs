@@ -1,6 +1,6 @@
-﻿namespace MercadoPago.NetCore.Model.DataStructures.Preference
+﻿namespace MercadoPago.NetCore.Model.Resources.Dataclassures.Preference
 {
-    public struct ReceiverAddress
+    public class ReceiverAddress
     {
         #region Properties 
         

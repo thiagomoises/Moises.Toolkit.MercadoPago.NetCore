@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.28822.285
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoPago.NetCore.Model", "src\MercadoPago.NetCore.Model\MercadoPago.NetCore.Model.csproj", "{83708025-939A-446B-B3F7-FF9848D42742}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "moisesToolkit.MercadoPago.NetCore", "src\moisesToolkit.MercadoPago.NetCore\moisesToolkit.MercadoPago.NetCore.csproj", "{03C70825-A7D5-4706-A04B-5587FBD4F12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoPago.NetCore", "src\MercadoPago.NetCore\MercadoPago.NetCore.csproj", "{03C70825-A7D5-4706-A04B-5587FBD4F12A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{66803B7C-BAC3-4D59-A545-32A25A7F492D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{DEC650BA-CA8D-4C6B-9ED2-EDF73F04116D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "moisesToolkit.MercadoPago.NetCore.Tests", "test\moisesToolkit.MercadoPago.NetCore.Tests\moisesToolkit.MercadoPago.NetCore.Tests.csproj", "{131DD0DD-7D71-4761-B73C-9CCC74F790C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoPago.NetCore.Tests", "test\MercadoPago.NetCore.Tests\MercadoPago.NetCore.Tests.csproj", "{131DD0DD-7D71-4761-B73C-9CCC74F790C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D4AD1EED-E076-4963-A565-1EE127585319}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "moisesToolkit.MercadoPago.NetCore.Sample", "sample\moisesToolkit.MercadoPago.NetCore.Sample\moisesToolkit.MercadoPago.NetCore.Sample.csproj", "{B1F23251-3622-4C11-B69B-8F08D83F0B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoPago.NetCore.Sample", "sample\MercadoPago.NetCore.Sample\MercadoPago.NetCore.Sample.csproj", "{B1F23251-3622-4C11-B69B-8F08D83F0B75}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

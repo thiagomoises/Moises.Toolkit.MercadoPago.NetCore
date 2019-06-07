@@ -3,7 +3,7 @@
     public class Identification
     {
         #region Properties 
-        private int _number;
+        private string _number;
         private string _subtype;
         private string _type; 
         #endregion
@@ -12,7 +12,7 @@
         /// <summary>
         /// Identification number
         /// </summary>
-        public int Number
+        public string Number
         {
             get { return _number;  }
             set { _number = value; }

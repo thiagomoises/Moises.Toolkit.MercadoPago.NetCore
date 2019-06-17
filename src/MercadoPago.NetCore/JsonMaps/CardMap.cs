@@ -1,9 +1,6 @@
 ﻿using MercadoPago.NetCore.Model.Resources;
 using Newtonsoft.FluentAPI.Abstracts;
 using Newtonsoft.FluentAPI.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Moises.Toolkit.MercadoPago.NetCore.JsonMaps
 {
@@ -23,6 +20,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.JsonMaps
             jsonTypeBuilder.Property(x => x.CardHolder).HasFieldName("cardholder");
             jsonTypeBuilder.Property(x => x.DateCreated).HasFieldName("date_created");
             jsonTypeBuilder.Property(x => x.DateLastUpdated).HasFieldName("date_last_updated");
+            jsonTypeBuilder.Property(x => x.Token).HasFieldName("token");
         }
     }
 }

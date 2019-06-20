@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MercadoPago.NetCore.Abstracts\MercadoPago.NetCore.Abstracts.csproj" />
     <ProjectReference Include="..\MercadoPago.NetCore.Model\MercadoPago.NetCore.Model.csproj" />
   </ItemGroup>
 

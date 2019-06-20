@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>Interfaces and abstractions for MercadoPago.NetCore</Description>
+    <PackageId>Moises.Toolkit.MercadoPago.NetCore.Abstracts</PackageId>
+    <Authors>T. Moises</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="prmToolkit.NotificationPattern" Version="1.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MercadoPago.NetCore.Model\MercadoPago.NetCore.Model.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D4AD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MercadoPago.NetCore.Sample", "sample\MercadoPago.NetCore.Sample\MercadoPago.NetCore.Sample.csproj", "{B1F23251-3622-4C11-B69B-8F08D83F0B75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MercadoPago.NetCore.Abstracts", "src\MercadoPago.NetCore.Abstracts\MercadoPago.NetCore.Abstracts.csproj", "{378D1C57-745D-4BBE-A7EE-91C536F12B80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B1F23251-3622-4C11-B69B-8F08D83F0B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1F23251-3622-4C11-B69B-8F08D83F0B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1F23251-3622-4C11-B69B-8F08D83F0B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{378D1C57-745D-4BBE-A7EE-91C536F12B80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{378D1C57-745D-4BBE-A7EE-91C536F12B80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{378D1C57-745D-4BBE-A7EE-91C536F12B80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{378D1C57-745D-4BBE-A7EE-91C536F12B80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{03C70825-A7D5-4706-A04B-5587FBD4F12A} = {66803B7C-BAC3-4D59-A545-32A25A7F492D}
 		{131DD0DD-7D71-4761-B73C-9CCC74F790C3} = {DEC650BA-CA8D-4C6B-9ED2-EDF73F04116D}
 		{B1F23251-3622-4C11-B69B-8F08D83F0B75} = {D4AD1EED-E076-4963-A565-1EE127585319}
+		{378D1C57-745D-4BBE-A7EE-91C536F12B80} = {66803B7C-BAC3-4D59-A545-32A25A7F492D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0AC0F20E-E96C-4C6F-92A0-126E1A8AE303}

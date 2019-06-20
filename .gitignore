@@ -11,3 +11,5 @@
 /test/MercadoPago.NetCore.Tests/obj
 /sample/MercadoPago.NetCore.Sample/bin
 /sample/MercadoPago.NetCore.Sample/obj
+/src/MercadoPago.NetCore.Abstracts/bin
+/src/MercadoPago.NetCore.Abstracts/obj

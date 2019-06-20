@@ -1,4 +1,5 @@
-﻿using MercadoPago.NetCore.Model.Resources;
+﻿using AutoMapper;
+using MercadoPago.NetCore.Model.Resources;
 using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using MercadoPago.NetCore.Model.Resources.Dataclassures.Payment;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
@@ -23,6 +24,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
         public void Setup()
         {
             Mock<ITokenHubClient> tokenHubClient = new Mock<ITokenHubClient>();
+            Mock<IMapper> mapper = new Mock<IMapper>();
 
             Mock<IHttpClientFactory> _httpClientFactory = new Mock<IHttpClientFactory>();
 
@@ -37,7 +39,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
 
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
-            _PaymentHubClient = new PaymentHubClient(_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
+            _PaymentHubClient = new PaymentHubClient(mapper.Object,_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
         }
 
         [TearDown]

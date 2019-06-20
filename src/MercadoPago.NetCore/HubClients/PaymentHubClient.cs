@@ -1,5 +1,7 @@
-﻿using MercadoPago.NetCore.Model.DataStructures.Search;
+﻿using AutoMapper;
+using MercadoPago.NetCore.Model.DataStructures.Search;
 using MercadoPago.NetCore.Model.Resources;
+using MercadoPago.NetCore.Request;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
@@ -11,8 +13,10 @@ namespace Moises.Toolkit.MercadoPago.NetCore
 {
     public partial class PaymentHubClient : MercadoPagoHubClient, IPaymentHubClient
     {
-        public PaymentHubClient(IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
+        private readonly IMapper _mapper;
+        public PaymentHubClient(IMapper mapper, IHttpClientFactory httpClientFactory, MPOptions options, ITokenHubClient tokenHubClient) : base(httpClientFactory, options, tokenHubClient)
         {
+            _mapper = mapper;
         }
 
         public async System.Threading.Tasks.Task<List<Payment>> GetPaymentsAsync()
@@ -63,9 +67,11 @@ namespace Moises.Toolkit.MercadoPago.NetCore
             if (this.IsInvalid())
                 return null;
 
+            var paymentRequest = _mapper.Map<PaymentRequest>(payment);
+
             var url = await MPUrlBuildAsync($"/v1/payments/");
 
-            var content = new StringContent(JsonConvert.SerializeObject(payment, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
+            var content = new StringContent(JsonConvert.SerializeObject(paymentRequest, MPUtil.JsonSerializerSettings), Encoding.UTF8, "application/json");
             var response = await Client.PostAsync(url, content);
             string stringResponse = await this.ExtractResponseAsync(response);
             if (this.IsInvalid())

@@ -8,7 +8,6 @@ using System.Collections.Generic;
 
 namespace MercadoPago.NetCore.Model.Resources
 {
-
     /// <summary>
     /// This service allows you to create, modify or read payments
     /// </summary>
@@ -280,7 +279,7 @@ namespace MercadoPago.NetCore.Model.Resources
         /// </summary>
         public bool Capture
         {
-            private get { return this._capture; }
+            get { return this._capture; }
             set { this._capture = value; }
         } 
         /// <summary>

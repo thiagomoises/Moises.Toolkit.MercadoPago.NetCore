@@ -47,6 +47,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.JsonMaps
             jsonTypeBuilder.Property(x => x.DifferentialPricingId).HasFieldName("differential_pricing_id");
             jsonTypeBuilder.Property(x => x.TransactionDetails).HasFieldName("transaction_details");
             jsonTypeBuilder.Property(x => x.FeeDetails).HasFieldName("fee_details");
+            jsonTypeBuilder.Property(x => x.Capture).HasFieldName("capture");
             jsonTypeBuilder.Property(x => x.Captured).HasFieldName("captured");
             jsonTypeBuilder.Property(x => x.BinaryMode).HasFieldName("binary_mode");
             jsonTypeBuilder.Property(x => x.CallForAuthorizeId).HasFieldName("call_for_authorize_id");

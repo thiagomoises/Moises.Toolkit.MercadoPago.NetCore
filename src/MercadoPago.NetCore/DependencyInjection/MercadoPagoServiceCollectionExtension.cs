@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using AutoMapper;
+using MercadoPago.NetCore.AutoMapper;
+using MercadoPago.NetCore.Model.Resources;
+using Microsoft.Extensions.DependencyInjection;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using System;
@@ -20,7 +23,8 @@ namespace Moises.Toolkit.MercadoPago.NetCore.DependencyInjection
                 httpClient.DefaultRequestHeaders.Add("ContentType", "application/json");
                 httpClient.DefaultRequestHeaders.Add("User-Agent", "MercadoPago DotNet SDK/1.0.30");
             });
-
+            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddTransient<ICardsHubClient, CardsHubClient>();
             services.AddTransient<ICustomerHubClient, CustomerHubClient>();
             services.AddTransient<IMerchantOrderHubClient, MerchantOrderHubClient>();
@@ -31,6 +35,15 @@ namespace Moises.Toolkit.MercadoPago.NetCore.DependencyInjection
             services.AddTransient<IPreferenceHubClient, PreferenceHubClient>();
             services.AddTransient<IRefundHubClient, RefundHubClient>();
             services.AddTransient<ITokenHubClient, TokenHubClient>();
+
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             return services;
         }

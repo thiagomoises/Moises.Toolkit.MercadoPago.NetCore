@@ -70,6 +70,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore
             JsonSerializerSettings = new JsonSerializerSettings()
             {
                 NullValueHandling = NullValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
                 Formatting = Formatting.Indented,
                 ContractResolver = _fcr
             };

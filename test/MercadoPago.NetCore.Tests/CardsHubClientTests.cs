@@ -1,12 +1,9 @@
-﻿using MercadoPago.NetCore.Model.Resources;
-using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
-using MercadoPago.NetCore.Model.Resources.Dataclassures.Card;
+﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Moises.Toolkit.MercadoPago.NetCore.Tests.Helpers;
 using Moq;
 using NUnit.Framework;
-using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;

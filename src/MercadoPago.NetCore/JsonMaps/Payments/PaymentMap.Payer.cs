@@ -16,6 +16,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.JsonMaps.Payments
             jsonTypeBuilder.Property(x => x.FirstName).HasFieldName("first_name");
             jsonTypeBuilder.Property(x => x.LastName).HasFieldName("last_name");
             jsonTypeBuilder.Property(x => x.Entity_type).HasFieldName("entity_type");
+            jsonTypeBuilder.Property(x => x.Type).HasFieldName("type");
 
         }
     }

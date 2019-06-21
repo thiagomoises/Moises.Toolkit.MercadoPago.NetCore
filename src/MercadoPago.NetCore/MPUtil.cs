@@ -41,6 +41,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore
             _fcr.AddConfiguration(new Moises.Toolkit.MercadoPago.NetCore.JsonMaps.PaymentMethods.SecuryCodeMap());
             _fcr.AddConfiguration(new Moises.Toolkit.MercadoPago.NetCore.JsonMaps.PaymentMethods.SettingsMap());
             _fcr.AddConfiguration(new PaymentMap());
+            _fcr.AddConfiguration(new PaymentRequestMap());
             _fcr.AddConfiguration(new Moises.Toolkit.MercadoPago.NetCore.JsonMaps.Payments.IdentificationMap());
             _fcr.AddConfiguration(new Moises.Toolkit.MercadoPago.NetCore.JsonMaps.Payments.PayerMap());
             _fcr.AddConfiguration(new Moises.Toolkit.MercadoPago.NetCore.JsonMaps.Payments.PhoneMap());

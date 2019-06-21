@@ -30,6 +30,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.JsonMaps
             jsonTypeBuilder.Property(x => x.StatementDescriptor).HasFieldName("statement_descriptor");
             jsonTypeBuilder.Property(x => x.NotificationUrl).HasFieldName("notification_url");
             jsonTypeBuilder.Property(x => x.Installments).HasFieldName("installments");
+            jsonTypeBuilder.Property(x => x.Token).HasFieldName("token");
         }
     }
 }

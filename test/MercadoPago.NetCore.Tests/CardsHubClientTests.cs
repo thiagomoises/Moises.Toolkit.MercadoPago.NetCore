@@ -1,4 +1,5 @@
-﻿using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
+﻿using MercadoPago.NetCore.Model.Resources;
+using MercadoPago.NetCore.Model.Resources.Dataclassures.Auth;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Moises.Toolkit.MercadoPago.NetCore.Tests.Helpers;
@@ -28,7 +29,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
 
             var customerHub = new CustomerHubClientTests();
             customerHub.Setup();
-            if (customerHub.CustomerHubClient.SearchAsync(null).TryExecute(out var customers))
+            if (customerHub.CustomerHubClient.SearchAsync(null).TryExecute(out var customers, 10000))
                 CustomerId = customers.Results.Select(x => x.Id).FirstOrDefault();
 
             tokenHubClient.Setup(x => x.GetTicketAsync())
@@ -45,20 +46,15 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
         [Test]
         public async Task SaveAsync_Test()
         {
-            var Card = new Card()
+            Card card = new Card()
             {
-                CustomerId = CustomerId,
-                ExpirationMonth = 9,
-                ExpirationYear = 2022,
-                FirstSixDigits = "123456",
-                LastFourDigits = "7890",
-                SecurityCode = new SecurityCode() { CardLocation = "back", Length = 3 },
-                CardHolder = new CardHolder { Name = "Thiago Moises" },
-                DateCreated = DateTime.Now
+                Token = "9b2d63e00d66a8c721607214cedaecda",
+                CustomerId = this.CustomerId
             };
-            var result = await _CardHubClient.SaveAsync(Card);
 
-            bool firstCondition = (!string.IsNullOrEmpty(result?.Id) && Card.FirstSixDigits.Equals(result?.FirstSixDigits) && _CardHubClient.IsValid());
+            var result = await _CardHubClient.SaveAsync(card);
+
+            bool firstCondition = (!string.IsNullOrEmpty(result?.Id) && card.FirstSixDigits.Equals(result?.FirstSixDigits) && _CardHubClient.IsValid());
             bool secondCondition = _CardHubClient.Notifications.Any(x => x.Message.Equals("the card already exist"));
 
             Assert.IsTrue(firstCondition || secondCondition);

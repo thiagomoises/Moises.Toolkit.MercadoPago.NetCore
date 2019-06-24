@@ -18,7 +18,7 @@
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.1.1" />
     <PackageReference Include="IdentityModel" Version="3.10.10" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="2.2.0" />
-    <PackageReference Include="Moises.Toolkit.Newtonsoft.FluentAPI" Version="2.0.0" />
+    <PackageReference Include="Moises.Toolkit.Newtonsoft.FluentAPI" Version="2.0.2" />
     <PackageReference Include="prmToolkit.NotificationPattern" Version="1.1.2" />
   </ItemGroup>
 

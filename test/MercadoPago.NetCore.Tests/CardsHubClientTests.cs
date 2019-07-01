@@ -31,7 +31,7 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
             customerHub.Setup();
             if (customerHub.CustomerHubClient.SearchAsync(null).TryExecute(out var customers, 10000))
                 CustomerId = customers.Results.Select(x => x.Id).FirstOrDefault();
-
+            
             tokenHubClient.Setup(x => x.GetTicketAsync())
                 .Returns(Task.FromResult(new Ticket() { AccessToken = "TEST-8600607042428103-060407-f91bbb3d5d0029bc342657a83aa08ee5-397002962" }));
             _CardHubClient = new CardsHubClient(_httpClientFactory.Object, TicketHelperTest.GetMPOptions(), tokenHubClient.Object);
@@ -60,6 +60,22 @@ namespace Moises.Toolkit.MercadoPago.NetCore.Tests
             Assert.IsTrue(firstCondition || secondCondition);
         }
         */
+
+        //442194730-fZXyKVGsxiI7ct
+        [Test]
+        public async Task GetCardsAsync_Test_Valid()
+        {
+            var result = await _CardHubClient.GetCardsAsync("442194730-fZXyKVGsxiI7ct");
+            Assert.IsTrue(_CardHubClient.IsValid());
+        }
+
+        [Test]
+        public async Task GetCardsAsync_Test_Null()
+        {
+            var result = await _CardHubClient.GetCardsAsync(null);
+            Assert.IsTrue(_CardHubClient.IsInvalid());
+        }
+
         [Test]
         public async Task FindAsync_Test_Null()
         {

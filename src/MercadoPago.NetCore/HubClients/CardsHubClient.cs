@@ -2,6 +2,8 @@
 using MercadoPago.NetCore.Model.Resources;
 using Moises.Toolkit.MercadoPago.NetCore.HubClients.Abstracts;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 
@@ -13,22 +15,29 @@ namespace Moises.Toolkit.MercadoPago.NetCore.HubClients
         {
         }
 
-        public async System.Threading.Tasks.Task<SearchResult<Card>> GetCardsAsync(string customerId)
+        public async System.Threading.Tasks.Task<IEnumerable<Card>> GetCardsAsync(string customerId)
         {
-            if (string.IsNullOrEmpty(customerId))
+            try
             {
-                this.AddNotification("customerId", "customerId is Required");
+                if (string.IsNullOrEmpty(customerId))
+                {
+                    this.AddNotification("customerId", "customerId is Required");
+                }
+
+                if (this.IsInvalid())
+                    return null;
+
+                var url = await MPUrlBuildAsync($"/v1/customers/{customerId}/cards");
+                var response = await Client.GetAsync(url);
+                string stringResponse = await this.ExtractResponseAsync(response);
+                if (this.IsInvalid())
+                    return null;
+                return JsonConvert.DeserializeObject<IEnumerable<Card>>(stringResponse, MPUtil.JsonSerializerSettings);
             }
-
-            if (this.IsInvalid())
+            catch (Exception ex)
+            {
                 return null;
-
-            var url = await MPUrlBuildAsync($"/v1/customers/{customerId}/cards");
-            var response = await Client.GetAsync(url);
-            string stringResponse = await this.ExtractResponseAsync(response);
-            if (this.IsInvalid())
-                return null;
-            return JsonConvert.DeserializeObject<SearchResult<Card>>(stringResponse, MPUtil.JsonSerializerSettings);
+            }
         }
 
         public async System.Threading.Tasks.Task<Card> FindAsync(string customerId, string cardId)
